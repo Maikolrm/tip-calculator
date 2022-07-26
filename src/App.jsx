@@ -2,7 +2,7 @@ import { useState } from 'react'
 
 function App() {
   return (
-    <main className="m-auto w-full max-w-2xl">
+    <main className="m-auto w-full max-w-2xl font-space-mono">
       <header className="flex">
         <img className="m-auto" src="/logo.svg" alt="Splitter logo" />
       </header>
