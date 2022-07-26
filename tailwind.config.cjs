@@ -6,6 +6,7 @@ module.exports = {
   ],
   theme: {
     extend: {
+      fontFamily: { "space-mono": ["space mono"] },
       colors: {
         "primary": "hsl(172, 67%, 45%)",
         "dark-cyan": "hsl(183, 100%, 15%)",
