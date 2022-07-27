@@ -14,7 +14,7 @@ function App() {
   const initialState =  {
     bill: 0,
     people: 0,
-    percent: 5,
+    tips: [5, 10, 15, 25, 50],
     amount: 0,
     total: 0
   }
