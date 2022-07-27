@@ -25,7 +25,7 @@ export default function SplitterTotal(props) {
           <h2 className="font-bold text-5xl text-primary">${appState.total.toFixed(2)}</h2>
         </div>
       </div>
-      <button className="block w-full bg-primary rounded-md font-bold text-dark-cyan leading-10 uppercase tracking-widest">reset</button>
+      <button disabled="disabled" className="block w-full bg-primary rounded-md font-bold text-xl text-dark-cyan leading-[3.2rem] uppercase tracking-widest opacity-20">reset</button>
     </div>
   )
 }
