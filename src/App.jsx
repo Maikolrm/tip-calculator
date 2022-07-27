@@ -7,7 +7,7 @@ function App() {
         <img className="m-auto" src="/logo.svg" alt="Splitter logo" />
       </header>
       <section className="p-6 mt-14 bg-white rounded-2xl shadow-6xl lg:flex">
-        <div className="lg:px-6 lg:flex-1">
+        <div className="flex flex-col justify-between lg:px-6 lg:flex-1">
           <div>
             <h2 className="font-semibold text-gr-cyan leading-none">Bill</h2>
             <div className="pt-2">
@@ -15,7 +15,7 @@ function App() {
             </div>
           </div>
           {/* tips */}
-          <div className="mt-8">
+          <div className="mt-8 lg:mt-0">
             <h2 className="font-semibold text-gr-cyan leading-none">Select tip %</h2>
             <div className="grid grid-cols-2 gap-2 pt-3 sm:grid-cols-3">
               <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan hover:bg-primary hover:text-dark-cyan">5%</button>
@@ -51,7 +51,7 @@ function App() {
               <h2 className="font-bold text-5xl text-primary">$32.79</h2>
             </div>
           </div>
-          <button className="block w-full bg-primary rounded-md font-bold leading-10 uppercase tracking-widest">reset</button>
+          <button className="block w-full bg-primary rounded-md font-bold text-dark-cyan leading-10 uppercase tracking-widest">reset</button>
         </div>
       </section>
     </main>
