@@ -22,7 +22,11 @@ function App() {
   // reducer
   function reducer(draft, action) {
     switch(action.type) {
-      case "":
+      case "set-bill":
+        draft.bill = action.value 
+        break
+      case "set-people":
+        draft.people = action.value 
         break
     }
   }
