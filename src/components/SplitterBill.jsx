@@ -44,9 +44,9 @@ export default function SplitterBill(props) {
       <div className="mt-8">
         <div className="flex items-center font-semibold">
           <h2 className="flex-1 font-semibold text-gr-cyan leading-none">Number of people</h2>
-          <p className="text-red-300 leading-none">Can't be zero</p>
+          <p className={"text-red-300 leading-none " + (!appState.people ? "" : "hidden")}>Can't be zero</p>
         </div>
-        <div className="flex mt-2 bg-light-gr-cyan border-2 border-red-400 rounded-md">
+        <div className={"flex mt-2 bg-light-gr-cyan border-2 rounded-md " + (!appState.people ? "border-red-400" : "border-transparent")}>
           <span className="inline-block w-10 h-10 text-center text-gr-cyan leading-10"><i className="fa-solid fa-user"></i></span> 
           <input
             onChange={e => appDispatch({ type: "set-people", value: e.target.value })}
