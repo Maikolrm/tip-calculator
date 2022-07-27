@@ -18,11 +18,11 @@ function App() {
           <div className="mt-8">
             <h2 className="font-semibold text-gr-cyan leading-none">Select tip %</h2>
             <div className="grid grid-cols-2 gap-2 pt-3 sm:grid-cols-3">
-              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan">5%</button>
-              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan">10%</button>
-              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan">15%</button>
-              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan">25%</button>
-              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan">50%</button>
+              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan hover:bg-primary hover:text-dark-cyan">5%</button>
+              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan hover:bg-primary hover:text-dark-cyan">10%</button>
+              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan hover:bg-primary hover:text-dark-cyan">15%</button>
+              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan hover:bg-primary hover:text-dark-cyan">25%</button>
+              <button className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan hover:bg-primary hover:text-dark-cyan">50%</button>
               <button>Custom</button>
             </div>
           </div>
