@@ -42,8 +42,11 @@ export default function SplitterBill(props) {
       </div>
       {/* tips */}
       <div className="mt-8">
-        <h2 className="font-semibold text-gr-cyan leading-none">Number of people</h2>
-        <div className="flex mt-2 bg-light-gr-cyan rounded-md">
+        <div className="flex items-center font-semibold">
+          <h2 className="flex-1 font-semibold text-gr-cyan leading-none">Number of people</h2>
+          <p className="text-red-300 leading-none">Can't be zero</p>
+        </div>
+        <div className="flex mt-2 bg-light-gr-cyan border-2 border-red-400 rounded-md">
           <span className="inline-block w-10 h-10 text-center text-gr-cyan leading-10"><i className="fa-solid fa-user"></i></span> 
           <input
             onChange={e => appDispatch({ type: "set-people", value: e.target.value })}
