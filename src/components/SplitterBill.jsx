@@ -7,7 +7,9 @@ import AppDispatch from "../AppDispatch"
 // components
 function TipButton(props) {
   return  (
-    <button onClick={() => appDispatch({ type: "set-tip", value: props.tip })} className="inline-block p-2 bg-dark-cyan rounded-md font-bold text-xl text-light-gr-cyan hover:bg-primary hover:text-dark-cyan">
+    <button
+      onClick={() => props.dispatch({ type: "select-tip", value: props.tip })}
+      className={"inline-block p-2 rounded-md font-bold text-xl hover:bg-primary hover:text-dark-cyan " + (props.active ? "bg-primary text-dark-cyan" : "bg-dark-cyan text-light-gr-cyan")}>
       {props.tip}%
     </button>
   )
@@ -50,7 +52,7 @@ export default function SplitterBill(props) {
       <div className="mt-8 lg:mt-0">
         <h2 className="font-semibold text-gr-cyan leading-none">Select tip %</h2>
         <div className="grid grid-cols-2 gap-2 pt-3 sm:grid-cols-3">
-          {appState.tips.map(tip => <TipButton key={tip} tip={tip} dispatch={appDispatch} />)}
+          {appState.tips.map((tip, index) => <TipButton key={tip} tip={tip} dispatch={appDispatch} active={index == appState.selectedTip.index} />)}
           <button>Custom</button>
         </div>
       </div>
