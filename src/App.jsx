@@ -26,7 +26,7 @@ function App() {
         draft.bill = action.value 
         break
       case "set-people":
-        draft.people = action.value 
+        draft.people = action.value ? parseInt(action.value) : 0
         break
       case "calculate-tip":
         const total = draft.bill / draft.people
