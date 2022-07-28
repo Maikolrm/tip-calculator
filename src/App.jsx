@@ -43,10 +43,10 @@ function App() {
 
   const [state, dispatch] = useImmerReducer(reducer, initialState)
 
-  // first mount
+  // watching state changes
   useEffect(() => {
     dispatch({ type: "calculate-tip" })
-  },  [])
+  },  [state.bill, state.people, state.selectedTip])
 
   return (
     <AppState.Provider value={state}>
