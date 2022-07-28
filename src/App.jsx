@@ -15,6 +15,7 @@ function App() {
     bill: 145.33,
     people: 5,
     tips: [5, 10, 15, 25, 50],
+    selectedTip: { index: 2, value: 15 },
     amount: 0,
     total: 0
   }
@@ -28,10 +29,14 @@ function App() {
       case "set-people":
         draft.people = action.value ? parseInt(action.value) : 0
         break
+      case "select-tip":
+        draft.selectedTip.index = draft.tips.indexOf(action.value)
+        draft.selectedTip.value = action.value
+        break
       case "calculate-tip":
         const total = draft.bill / draft.people
         draft.total = total
-        draft.amount = total * (draft.tips[2] / 100)
+        draft.amount = total * (draft.selectedTip.value / 100)
         break
     }
   }
