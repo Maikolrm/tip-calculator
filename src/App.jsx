@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useEffect } from 'react'
 import { useImmerReducer } from "use-immer"
 
 // context
@@ -12,8 +12,8 @@ import SplitterTotal from "./components/SplitterTotal"
 function App() {
   // initialState
   const initialState =  {
-    bill: 0,
-    people: 0,
+    bill: 145.33,
+    people: 5,
     tips: [5, 10, 15, 25, 50],
     amount: 0,
     total: 0
@@ -28,10 +28,20 @@ function App() {
       case "set-people":
         draft.people = action.value 
         break
+      case "calculate-tip":
+        const total = draft.bill / draft.people
+        draft.total = total
+        draft.amount = total * (draft.tips[2] / 100)
+        break
     }
   }
 
   const [state, dispatch] = useImmerReducer(reducer, initialState)
+
+  // first mount
+  useEffect(() => {
+    dispatch({ type: "calculate-tip" })
+  },  [])
 
   return (
     <AppState.Provider value={state}>
