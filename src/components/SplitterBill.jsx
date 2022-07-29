@@ -51,9 +51,9 @@ export default function SplitterBill(props) {
       {/* tips */}
       <div className="mt-8 lg:mt-0">
         <h2 className="font-semibold text-gr-cyan leading-none">Select tip %</h2>
-        <div className="grid grid-cols-2 gap-3 pt-3 sm:grid-cols-3">
+        <div className="grid grid-cols-2 gap-3 pt-3 sm:grid-cols-3 font-bold text-2xl">
           {appState.tips.map((tip, index) => <TipButton key={tip} tip={tip} dispatch={appDispatch} active={index == appState.selectedTip.index} />)}
-          <button>Custom</button>
+          <input type="text" className="inline-block bg-light-gr-cyan rounded-md border-2 border-transparent text-center text-dark-cyan outline-none focus:border-gr-cyan" placeholder="Custom" />
         </div>
       </div>
       {/* tips */}
