@@ -45,7 +45,9 @@ function App() {
 
   // watching state changes
   useEffect(() => {
-    dispatch({ type: "calculate-tip" })
+    if (state.people) {
+      dispatch({ type: "calculate-tip" })
+    }
   },  [state.bill, state.people, state.selectedTip])
 
   return (
