@@ -2,10 +2,14 @@ import { useContext } from "react"
 
 // context
 import AppState from "../AppState"
+import AppDispatch from "../AppDispatch"
 
 export default function SplitterTotal(props) {
   // app state
   const appState = useContext(AppState)
+
+  // app state
+  const appDispatch = useContext(AppDispatch)
 
   return (
     <div className="mt-6 p-9 rounded-xl bg-dark-cyan lg:flex-1 lg:mt-0">
@@ -25,7 +29,7 @@ export default function SplitterTotal(props) {
           <h2 className="font-bold text-5xl text-primary">${appState.total.toFixed(2)}</h2>
         </div>
       </div>
-      <button disabled={appState.people ? "" : "disabled"} className={"block w-full bg-primary rounded-md font-bold text-xl text-dark-cyan leading-[3.2rem] uppercase tracking-widest " + (appState.people ? "" : "opacity-20")}>reset</button>
+      <button onClick={() => appDispatch({ type: "reset" })} disabled={appState.people ? "" : "disabled"} className={"block w-full bg-primary rounded-md font-bold text-xl text-dark-cyan leading-[3.2rem] uppercase tracking-widest " + (appState.people ? "" : "opacity-20")}>reset</button>
     </div>
   )
 }
