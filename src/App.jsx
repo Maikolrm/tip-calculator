@@ -24,7 +24,7 @@ function App() {
   function reducer(draft, action) {
     switch(action.type) {
       case "set-bill":
-        draft.bill = action.value.replace(/([^0-9\.?])/g, "") 
+        draft.bill = action.value ? parseFloat(action.value) : 0
         break
       case "set-people":
         draft.people = action.value ? parseInt(action.value) : 0
@@ -37,6 +37,12 @@ function App() {
         const total = action.people ? (draft.bill / draft.people) : (0)
         draft.total = total
         draft.amount = total * (draft.selectedTip.value / 100)
+        break
+      case "reset":
+        draft.bill = 0
+        draft.people = 0
+        draft.selectedTip.index = 0
+        draft.selectedTip.value = 5
         break
     }
   }
