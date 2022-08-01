@@ -24,7 +24,7 @@ function TipButton(props) {
 // tip controller
 function TipController(props) {
   // local state
-  const [focused, setFocused] = useState(true)
+  const [focused, setFocused] = useState(false)
 
   return (
     <>
