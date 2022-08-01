@@ -15,7 +15,7 @@ function App() {
     bill: 145.33,
     people: 5,
     tips: [5, 10, 15, 25, 50],
-    selectedTip: { index: 2, value: 15 },
+    selectedTip: { index: 0, value: 5 },
     amount: 0,
     total: 0
   }
