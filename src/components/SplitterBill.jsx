@@ -1,4 +1,4 @@
-import { useState, useContext } from "react"
+import { useState, useEffect, useContext } from "react"
 
 // context
 import AppState from "../AppState"
@@ -6,9 +6,15 @@ import AppDispatch from "../AppDispatch"
 
 // components
 function TipButton(props) {
+  // handle click
+  function handleClick() {
+    props.dispatch({ type: "select-tip", value: props.tip })
+    props.setValue("")
+  }
+
   return  (
     <button
-      onClick={() => props.dispatch({ type: "select-tip", value: props.tip })}
+      onClick={handleClick}
       className={"inline-block outline-none py-3 rounded-md font-bold text-xl hover:bg-primary hover:text-dark-cyan focus:text-dark-cyan focus:bg-primary " + (props.active ? "bg-primary text-dark-cyan" : "bg-dark-cyan text-light-gr-cyan")}>
       {props.tip}%
     </button>
@@ -42,11 +48,19 @@ function TipController(props) {
 }
 
 export default function SplitterBill(props) {
+  // local state
+  const [value, setValue] = useState("")
+
   // app state
   const appState = useContext(AppState)
 
   // app dispatch
   const appDispatch = useContext(AppDispatch)
+
+  // value changes
+  useEffect(() => {
+    appDispatch({ type: "select-tip", value: value ? parseInt(value) : 0 })
+  }, [value])
 
   return (
     <div className="flex flex-col justify-between lg:px-6 lg:flex-1">
@@ -57,8 +71,8 @@ export default function SplitterBill(props) {
       <div className="mt-8 lg:mt-0">
         <h2 className="font-semibold text-gr-cyan leading-none">Select tip %</h2>
         <div className="grid grid-cols-2 gap-3 pt-3 sm:grid-cols-3 font-bold text-2xl">
-          {appState.tips.map((tip, index) => <TipButton key={tip} tip={tip} dispatch={appDispatch} active={index == appState.selectedTip.index} />)}
-          <input type="text" className="inline-block bg-light-gr-cyan rounded-md border-2 border-transparent text-center text-dark-cyan outline-none focus:border-gr-cyan" placeholder="Custom" />
+          {appState.tips.map((tip, index) => <TipButton key={tip} index={index} tip={tip} dispatch={appDispatch} active={index == appState.selectedTip.index} setValue={setValue} />)}
+          <input value={value} onChange={e => setValue(e.target.value)} type="text" className={"inline-block bg-light-gr-cyan rounded-md border-2 border-transparent text-dark-cyan outline-none focus:border-gr-cyan " + (value ? "pr-2 text-right" : "text-center")} placeholder="Custom" />
         </div>
       </div>
       {/* tips */}

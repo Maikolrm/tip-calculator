@@ -30,7 +30,7 @@ function App() {
         draft.people = action.value ? parseInt(action.value) : 0
         break
       case "select-tip":
-        draft.selectedTip.index = draft.tips.indexOf(action.value)
+        draft.selectedTip.index = action.index
         draft.selectedTip.value = action.value
         break
       case "calculate-tip":
