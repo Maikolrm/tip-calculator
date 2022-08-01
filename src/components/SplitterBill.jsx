@@ -8,8 +8,8 @@ import AppDispatch from "../AppDispatch"
 function TipButton(props) {
   // handle click
   function handleClick() {
-    props.dispatch({ type: "select-tip", value: props.tip })
-    props.setValue("")
+    props.dispatch({ type: "select-tip", index: props.index, value: props.tip })
+    props.setValue("") // this prop points towards custom value field
   }
 
   return  (
@@ -59,7 +59,7 @@ export default function SplitterBill(props) {
 
   // value changes
   useEffect(() => {
-    appDispatch({ type: "select-tip", value: value ? parseInt(value) : 0 })
+    appDispatch({ type: "select-tip", index: value ? "custom" : 0, value: value ? parseInt(value) : 5 })
   }, [value])
 
   return (
@@ -72,7 +72,7 @@ export default function SplitterBill(props) {
         <h2 className="font-semibold text-gr-cyan leading-none">Select tip %</h2>
         <div className="grid grid-cols-2 gap-3 pt-3 sm:grid-cols-3 font-bold text-2xl">
           {appState.tips.map((tip, index) => <TipButton key={tip} index={index} tip={tip} dispatch={appDispatch} active={index == appState.selectedTip.index} setValue={setValue} />)}
-          <input value={value} onChange={e => setValue(e.target.value)} type="text" className={"inline-block bg-light-gr-cyan rounded-md border-2 border-transparent text-dark-cyan outline-none focus:border-gr-cyan " + (value ? "pr-2 text-right" : "text-center")} placeholder="Custom" />
+          <input value={value} onChange={e => setValue(e.target.value.replace(/([^0-9])/g, ""))} type="text" className={"inline-block bg-light-gr-cyan rounded-md border-2 border-transparent text-dark-cyan outline-none focus:border-gr-cyan " + (value ? "pr-2 text-right" : "text-center")} placeholder="Custom" />
         </div>
       </div>
       {/* tips */}
