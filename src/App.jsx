@@ -65,6 +65,17 @@ function App() {
             <SplitterBill />
             <SplitterTotal />
           </section>
+          <footer className="flex items-center mt-4 mb-2 text-center text-gr-cyan">
+            <a href="https://hernandez-maikol.netlify.app" target="_blank" className="w-10 h-10 text-center leading-10 hover:text-dark-cyan">
+              <i className="fa-solid fa-earth-americas"></i>
+            </a>
+            <h1 className="flex-1 font-semibold text-base leading-none">
+              hernandez maikol {new Date().getFullYear()}
+            </h1>
+            <a href="https://github.com/Maikolrm" target="_blank" className="w-10 h-10 text-center leading-10 hover:text-dark-cyan">
+              <i className="fa-brands fa-github"></i>
+            </a>
+          </footer>
         </main>
       </AppDispatch.Provider>
     </AppState.Provider>
