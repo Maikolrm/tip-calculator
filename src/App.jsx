@@ -12,7 +12,7 @@ import SplitterTotal from "./components/SplitterTotal"
 function App() {
   // initialState
   const initialState =  {
-    bill: 145.33,
+    bill: 1500,
     people: 5,
     tips: [5, 10, 15, 25, 50],
     selectedTip: { index: 0, value: 5 },
