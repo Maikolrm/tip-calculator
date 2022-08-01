@@ -1,4 +1,4 @@
-import { useContext } from "react"
+import { useState, useContext } from "react"
 
 // context
 import AppState from "../AppState"
@@ -17,17 +17,22 @@ function TipButton(props) {
 
 // tip controller
 function TipController(props) {
+  // local state
+  const [focused, setFocused] = useState(true)
+
   return (
     <>
       <div className="flex items-center font-semibold">
         <h2 className="flex-1 font-semibold text-gr-cyan leading-none">{props.label}</h2>
         <p className={"text-red-300 leading-none " + (!props.value ? "" : "hidden")}>Can't be zero</p>
       </div>
-      <div className={"flex mt-2 bg-light-gr-cyan border-2 rounded-md " + (!props.value ? "border-red-400" : "border-transparent")}>
+      <div className={`flex mt-2 bg-light-gr-cyan border-2 rounded-md ${!props.value ? "border-red-400" : focused ? "border-gr-cyan" : "border-transparent"}`}>
         <span className="inline-block w-10 h-10 text-center text-gr-cyan leading-10">
           <i className={"fa-solid fa-" + (props.icon)}></i>
         </span> 
         <input
+          onFocus={() => setFocused(true)}
+          onBlur={() => setFocused(false)}
           onChange={e => props.dispatch({ type: props.action, value: e.target.value })}
           value={props.value} type="text"
           className="flex-1 w-full pr-4 bg-transparent outline-none text-2xl text-right text-gr-cyan leading-10"/>
