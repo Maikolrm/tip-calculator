@@ -24,7 +24,7 @@ function App() {
   function reducer(draft, action) {
     switch(action.type) {
       case "set-bill":
-        draft.bill = action.value 
+        draft.bill = action.value.replace(/([^0-9\.?])/g, "") 
         break
       case "set-people":
         draft.people = action.value ? parseInt(action.value) : 0
