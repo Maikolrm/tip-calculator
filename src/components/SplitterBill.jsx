@@ -9,7 +9,7 @@ function TipButton(props) {
   return  (
     <button
       onClick={() => props.dispatch({ type: "select-tip", value: props.tip })}
-      className={"inline-block py-3 rounded-md font-bold text-xl hover:bg-primary hover:text-dark-cyan " + (props.active ? "bg-primary text-dark-cyan" : "bg-dark-cyan text-light-gr-cyan")}>
+      className={"inline-block outline-none py-3 rounded-md font-bold text-xl hover:bg-primary hover:text-dark-cyan focus:text-dark-cyan focus:bg-primary " + (props.active ? "bg-primary text-dark-cyan" : "bg-dark-cyan text-light-gr-cyan")}>
       {props.tip}%
     </button>
   )
