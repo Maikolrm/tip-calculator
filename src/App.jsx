@@ -34,7 +34,7 @@ function App() {
         draft.selectedTip.value = action.value
         break
       case "calculate-tip":
-        const total = draft.bill / draft.people
+        const total = action.people ? (draft.bill / draft.people) : (0)
         draft.total = total
         draft.amount = total * (draft.selectedTip.value / 100)
         break
@@ -45,9 +45,7 @@ function App() {
 
   // watching state changes
   useEffect(() => {
-    if (state.people) {
-      dispatch({ type: "calculate-tip" })
-    }
+    dispatch({ type: "calculate-tip", people: state.people })
   },  [state.bill, state.people, state.selectedTip])
 
   return (
