@@ -29,7 +29,7 @@ function TipController(props) {
   return (
     <>
       <div className="flex items-center font-semibold">
-        <h2 className="flex-1 font-semibold text-gr-cyan leading-none">{props.label}</h2>
+        <h2 className="flex-1 font-semibold text-gr-cyan leading-none">{props.label.slice(0, 1).toUpperCase() + props.label.slice(1)}</h2>
         <p className={"text-red-300 leading-none " + (!props.value ? "" : "hidden")}>Can't be zero</p>
       </div>
       <div className={`flex mt-2 bg-light-gr-cyan border-2 rounded-md ${!props.value ? "border-red-400" : focused ? "border-gr-cyan" : "border-transparent"}`}>
