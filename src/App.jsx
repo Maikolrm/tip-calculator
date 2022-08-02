@@ -57,14 +57,14 @@ function App() {
   return (
     <AppState.Provider value={state}>
       <AppDispatch.Provider value={dispatch}>
-        <main className="m-auto w-full max-w-4xl font-space-mono">
+        <div className="m-auto w-full max-w-4xl font-space-mono">
           <header className="flex">
             <img className="m-auto" src="/logo.svg" alt="Splitter logo" />
           </header>
-          <section className="p-6 mt-14 bg-white rounded-2xl shadow-xl lg:flex">
+          <main className="p-6 mt-14 bg-white rounded-2xl shadow-xl lg:flex">
             <SplitterBill />
             <SplitterTotal />
-          </section>
+          </main>
           <footer className="flex items-center mt-4 mb-2 text-center text-gr-cyan">
             <a href="https://hernandez-maikol.netlify.app" target="_blank" className="w-10 h-10 text-center leading-10 hover:text-dark-cyan">
               <i className="fa-solid fa-earth-americas"></i>
@@ -76,7 +76,7 @@ function App() {
               <i className="fa-brands fa-github"></i>
             </a>
           </footer>
-        </main>
+        </div>
       </AppDispatch.Provider>
     </AppState.Provider>
   )
