@@ -43,7 +43,7 @@ function TipController(props) {
           onBlur={() => setFocused(false)}
           onChange={e => props.dispatch({ type: props.action, value: e.target.value })}
           value={props.value} type="text"
-          className="flex-1 w-full pr-4 bg-transparent outline-none text-2xl text-right text-gr-cyan leading-10"/>
+          className="flex-1 w-full pr-4 bg-transparent outline-none font-bold text-2xl text-right text-dark-cyan leading-10"/>
       </div>
     </>
   )
