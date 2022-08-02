@@ -37,6 +37,7 @@ function TipController(props) {
           <i className={"fa-solid fa-" + (props.icon)}></i>
         </span> 
         <input
+          id={props.name}
           name={props.name}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
