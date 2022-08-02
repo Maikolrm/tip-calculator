@@ -29,7 +29,7 @@ function TipController(props) {
   return (
     <>
       <div className="flex items-center font-semibold">
-        <h2 className="flex-1 font-semibold text-gr-cyan leading-none">{props.label.slice(0, 1).toUpperCase() + props.label.slice(1)}</h2>
+        <label htmlFor={props.name} className="flex-1 font-semibold text-gr-cyan leading-none">{props.label.slice(0, 1).toUpperCase() + props.label.slice(1)}</label>
         <p className={"text-red-300 leading-none " + (!props.value ? "" : "hidden")}>Can't be zero</p>
       </div>
       <div className={`flex mt-2 bg-light-gr-cyan border-2 rounded-md ${!props.value ? "border-red-400" : focused ? "border-gr-cyan" : "border-transparent"}`}>
@@ -37,6 +37,7 @@ function TipController(props) {
           <i className={"fa-solid fa-" + (props.icon)}></i>
         </span> 
         <input
+          name={props.name}
           onFocus={() => setFocused(true)}
           onBlur={() => setFocused(false)}
           onChange={e => props.dispatch({ type: props.action, value: e.target.value })}
@@ -65,7 +66,7 @@ export default function SplitterBill(props) {
   return (
     <div className="flex flex-col justify-between lg:px-6 lg:flex-1">
       <div>
-        <TipController label="bill" value={appState.bill} icon="dollar" action="set-bill" dispatch={appDispatch} />
+        <TipController label="bill" name="bill" value={appState.bill} icon="dollar" action="set-bill" dispatch={appDispatch} />
       </div>
       {/* tips */}
       <div className="mt-8 lg:mt-0">
@@ -77,7 +78,7 @@ export default function SplitterBill(props) {
       </div>
       {/* tips */}
       <div className="mt-8">
-        <TipController label="number of people" value={appState.people} icon="user" action="set-people" dispatch={appDispatch} />
+        <TipController label="number of people" name="people" value={appState.people} icon="user" action="set-people" dispatch={appDispatch} />
       </div>
     </div>
   )
